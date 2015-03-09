@@ -14,21 +14,15 @@ int main(){
         farm_record = calloc(n, sizeof(char));
         
         scarecrow_count = 0;
-        for (j=0; j<n; j++) {
-            if (farm[j] == '.') {
+        for (j=0; j<n; j++)
+            if (farm[j] == '.')
                 if (farm_record[j] == 0){
                     scarecrow_count++;
                     if (j+1 < n){
                         farm_record[j+1] = 1;
-                        farm_record[j] = 1;
                         if (j+2 < n) farm_record[j+2] = 1;
                     }
-                    else {
-                        farm_record[j] = 1;
-                    }
                 }
-            }
-        }
         
         printf("Case %d: %d\n",i+1 ,scarecrow_count);
         free(farm);
